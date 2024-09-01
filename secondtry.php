@@ -82,9 +82,10 @@ try {
     if (count($users) > 0) {
         echo "<h2>Users List</h2>";
         echo "<table>";
-        echo "<tr><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Actions</th></tr>";
+        echo "<tr><th>ID</th><th>First Name</th><th>Last Name</th><th>Email</th><th>Phone Number</th><th>Actions</th></tr>";
         foreach ($users as $user) {
             echo "<tr>";
+            echo "<td>" . htmlspecialchars($user['id']) . "</td>";
             echo "<td>" . htmlspecialchars($user['firstname']) . "</td>";
             echo "<td>" . htmlspecialchars($user['lastname']) . "</td>";
             echo "<td>" . htmlspecialchars($user['email']) . "</td>";
