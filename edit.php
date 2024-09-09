@@ -48,6 +48,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET'){
 
 
     do{
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errormessage = "Invalid email format";
+            break;
+        }
         if (empty($first_name) || empty($last_name) || empty($email) || empty($phone_number|| empty($id))) {
             $errormessage = "Please enter all the fields";
             break;

@@ -23,6 +23,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone_number = $_POST['phone_number'] ?? '';
 
     do {
+
+        if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+            $errormessage = "Invalid email format";
+            break;
+        }
+        
         if (empty($first_name) || empty($last_name) || empty($email) || empty($phone_number)) {
             $errormessage = "Please enter all the fields";
             break;
@@ -119,7 +125,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
                 <div class="col-sm-3 d-grid">
-                    <a class="btn btn-outline-primary" href="/crud.php" role="button">Cancel</a>
+                    <a class="btn btn-outline-primary" href="crud.php" role="button">Cancel</a>
                 </div>
             </div>
         </form>
